@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+    assignment:
+        container_name: assignment
+        build:
+            context: .
+        depends_on:
+            - database
+        ports:
+            - 3000:3000
+        environment:
+            - DB_SCHEMA=goal_trackers
+            - DB_HOST=database
+            - DB_PASSWORD=postgres
+            - DB_PORT=5432
+            - DB_USER=postgres
+            - PORT=4000
+        command: yarn start
+
+    database:
+        container_name: database
+        image: postgres
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=goal_trackers
+        volumes:
+            - database-data:/var/lib/postgresql/data/
+        ports:
+            - 2345:5432
+volumes:
+    database-data:

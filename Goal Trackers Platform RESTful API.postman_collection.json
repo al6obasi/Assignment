@@ -1,0 +1,128 @@
+{
+    "info": {
+        "_postman_id": "2e645578-2a46-4d3b-825b-1df4f0e35c66",
+        "name": "Goal Trackers Platform RESTful API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "1633351",
+        "_collection_link": "https://www.postman.com/datazone/workspace/goal-trackers-platform-restful-api/collection/1633351-2e645578-2a46-4d3b-825b-1df4f0e35c64?action=share&creator=1633351&source=collection_link"
+    },
+    "item": [
+        {
+            "name": "goals",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:3000/goals?page=3&limit=5&sortBy=id&sortOrder=desc",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["goals"],
+                    "query": [
+                        {
+                            "key": "page",
+                            "value": "3"
+                        },
+                        {
+                            "key": "limit",
+                            "value": "5"
+                        },
+                        {
+                            "key": "sortBy",
+                            "value": "id"
+                        },
+                        {
+                            "key": "sortOrder",
+                            "value": "desc"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "goal by id",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:3000/goal/1",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["goal", "1"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "update goal",
+            "request": {
+                "method": "PATCH",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"title\": \"goal 1 updated\",\r\n    \"description\": \"goal 1 description updated\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "localhost:3000/goal/1",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["goal", "1"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "delete goal",
+            "request": {
+                "method": "DELETE",
+                "url": {
+                    "raw": "localhost:3000/goal/2",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["goal", "2"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "add goal",
+            "request": {
+                "method": "POST",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"title\": \"new goal added\",\r\n    \"description\": \"new goal description added 31\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "localhost:3000/goal",
+                    "host": ["localhost"],
+                    "port": "3000",
+                    "path": ["goal"]
+                }
+            },
+            "response": []
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        }
+    ]
+}
