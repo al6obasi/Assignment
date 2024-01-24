@@ -89,7 +89,9 @@ class GoalController {
                 limit = DEFAULT_LIMIT_NUMBER,
                 sortBy = DEFAULT_SORT_BY_COLUMN,
                 sortOrder = DEFAULT_SORT_ORDER,
+                status
             } = queryParams
+            const where = {}
 
             // Validate the query params
             if (isNaN(parseInt(page))) {
@@ -120,9 +122,14 @@ class GoalController {
                 )
             }
 
+            if (status){
+                where.status = status
+            }
+
             // Get all goals with sorting and pagination
             const { count, rows: goals } =
                 await req.db.models.Goal.findAndCountAll({
+                    where,
                     order: [[sortBy, sortOrder]],
                     offset:
                         (parseInt(page) - 1) *

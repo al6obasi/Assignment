@@ -12,10 +12,10 @@
             "request": {
                 "method": "GET",
                 "url": {
-                    "raw": "localhost:3000/goals?page=3&limit=5&sortBy=id&sortOrder=desc",
+                    "raw": "localhost:3000/goals?page=3&limit=5&sortBy=id&sortOrder=desc&status=PENDING",
                     "host": ["localhost"],
                     "port": "3000",
-                    "path": ["goals"],
+                    "path": ["goal"],
                     "query": [
                         {
                             "key": "page",
@@ -32,6 +32,10 @@
                         {
                             "key": "sortOrder",
                             "value": "desc"
+                        },
+                        {
+                            "key": "status",
+                            "value": "PENDING"
                         }
                     ]
                 }
